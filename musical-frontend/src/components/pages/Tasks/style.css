@@ -11,12 +11,33 @@
 	height: 400px;
 	object-fit: cover;
 }
-.man__fullname{
-	color: rgb(182, 19, 19);
-}
+
 
 .man__fullname,
 .man__description {
 	margin-left: 40px;
 	font-size: 20px;
+	color: white;
+}
+
+.man__fullname {
+	margin-top: 0;
+	color: rgb(255, 132, 132);
+}
+
+.man__edit{
+	border: 1px solid white;
+	color: white;
+	cursor: pointer;
+	transition: 0.5s;
+	height: 15px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.man__edit:hover{
+	background: white;
+	color: black;
+	
 }

@@ -36,7 +36,7 @@ export function* authorization(action) {
 
 export function* loadProfileData(action) {
 	try {
-		console.log('action.id: ', action.id);
+	
 		const responseData = yield call(() =>
 			axios.get(`${API_URL}/profile/${action.id}`, { withCredentials: true }).then((response) => response.data)
 		);

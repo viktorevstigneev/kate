@@ -26,7 +26,7 @@ const Profile = ({ profile, honors, loadProfileData, loadHonorsData, match }) =>
 		getCurrentUser();
 	}, [match.params.id]);
 
-	console.log('profile: ', profile);
+
 
 	return (
 		<Fragment>

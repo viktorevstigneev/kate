@@ -39,6 +39,14 @@ module.exports = {
 					esModule: false,
 				},
 			},
+			{
+				test: /\.mp3$/,
+				loader: 'file-loader',
+				options: {
+					useRelativePath: true,
+					esModule: false,
+				},
+			}
 		],
 	},
 	resolve: {

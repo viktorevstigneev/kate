@@ -47,7 +47,7 @@ const handleDeleteUser = async (req, res) => {
 
 const handleUpdateUser = async (req, res) => {
 	try {
-		console.log(req.body);
+		console.log('req.body: ', req.body);
 
 		const result = await updateUser(req.body.id, req.body);
 

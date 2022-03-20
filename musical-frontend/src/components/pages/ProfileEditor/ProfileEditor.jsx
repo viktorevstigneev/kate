@@ -69,7 +69,7 @@ const ProfileEditor = ({ profile, loadProfileData, match }) => {
 							birthday: birthday,
 							englishLevel: englishLevel,
 						});
-						console.log('responseData: ', responseData);
+					
 					}}
 				>
 					<input

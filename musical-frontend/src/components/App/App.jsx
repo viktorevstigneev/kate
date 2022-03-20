@@ -10,10 +10,13 @@ import ProfileEditor from '../pages/ProfileEditor';
 import Music from '../pages/Music';
 import Tests from '../pages/Tests';
 import AdminPanel from '../pages/AdminPanel';
+import EditPerson from '../pages/EditPerson';
+import SignUp from '../pages/SignUp/SignUp';
 import './App.css';
 
 const App = () => (
 	<Switch>
+		<Route path="/signup" component={SignUp} />
 		<Route path="/auth" component={SignIn} />
 		<Route path="/main" component={Team} />
 		<Route path="/music" component={Music} />
@@ -23,6 +26,7 @@ const App = () => (
 		<Route path="/edit-profile/:id" component={ProfileEditor} />
 		<Route path="/edit-team/:id" component={TeamEditor} />
 		<Route path="/tasks/:id" component={Tasks} />
+		<Route path="/edit-person/:id" component={EditPerson} />
 		<Redirect to="/main" />
 	</Switch>
 );

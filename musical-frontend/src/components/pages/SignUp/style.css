@@ -64,12 +64,3 @@
 	background: #868686e8;
 	color: rgb(252, 252, 252);
 }
-
-
-.auth{
-	color: white;
-}
-
-.auth:hover{
-	text-decoration: underline;
-}

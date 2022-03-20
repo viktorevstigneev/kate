@@ -6,7 +6,7 @@ import './style.css';
 import { API_URL } from '../../../constants';
 
 const TaskInfo = ({ tasks, taskId }) => {
-	console.log('taskId: ', taskId);
+
 	const [findedTask, setFindedTask] = useState();
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ const TaskInfo = ({ tasks, taskId }) => {
 			setFindedTask(tasks.data.find((item) => item.taskId._id === taskId));
 		}
 	});
-	console.log('findedTask: ', findedTask);
+
 
 	// const renderSubtasks = () =>
 	// 	findedTask?.subtasks.map((subtask, index) => (

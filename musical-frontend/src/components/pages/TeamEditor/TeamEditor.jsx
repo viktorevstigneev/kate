@@ -16,8 +16,7 @@ const TeamEditor = ({ loadTeamData, team, match }) => {
 	useEffect(() => {
 		loadTeamData(match.params.id);
 	}, [match.params.id]);
-	console.log('match.params.id: ', match.params.id);
-	console.log('team: ', team);
+
 
 	const [createTimeValue, setCreateTimeValue] = useState(team.data.date ? team.data.date : '');
 	const [teamNameValue, setTeamNameValue] = useState(team.data.name ? team.data.name : '');
@@ -62,7 +61,7 @@ const TeamEditor = ({ loadTeamData, team, match }) => {
 					onSubmit={async (evt) => {
 						evt.preventDefault();
 						const formData = new FormData(evt.target);
-						console.log('formData: ', formData);
+			
 						const responseData = await axios({
 							method: 'PATCH',
 							url: `${API_URL}/team/${match.params.id}`,

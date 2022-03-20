@@ -34,8 +34,8 @@ const handleGetPerson = async (req, res) => {
 
 const handleDeleteTeam = async (req, res) => {
 	try {
-		const result = await deleteTeam(req.body.id);
-
+		const result = await deleteTeam(req.params.id);
+		
 		res.status(HttpStatusCode.OK).send(result);
 	} catch (error) {
 		res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
@@ -44,26 +44,24 @@ const handleDeleteTeam = async (req, res) => {
 
 const handleUpdateTeam = async (req, res) => {
 	try {
-		console.log(req.body);
-		console.log(req.file);
 		const result = await updateTeam(req.params.id, {
 			name: req.body.name,
 			description: req.body.description,
-			createdDate: req.body.createdDate,
-			logo: req.file.filename,
+			avatar: req.body.avatar,
 		});
 
 		res.status(HttpStatusCode.OK).send(result);
 	} catch (error) {
-		res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send({ error });
+		
+		res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send(error);
 	}
 };
 
 const handleUploadPhoto = async (req, res) => {
 	try {
-		console.log('req.query: ', req.query);
+	
 		let filedata = req.file;
-		console.log('filedata: ', filedata);
+;
 
 		const result = await updateTeam(req.query.id, { avatar: filedata.filename });
 

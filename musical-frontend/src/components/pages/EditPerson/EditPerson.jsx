@@ -9,40 +9,52 @@ import './style.css';
 
 import { API_URL } from '../../../constants';
 
-const AdminPanel = ({ loadTeamData, team, match }) => {
+const AdminPanel = ({ loadTasksData, tasks, match }) => {
 	useEffect(() => {
-		loadTeamData(match.params.id);
+		loadTasksData(match.params.id);
 	}, [match.params.id]);
 
 	const [file, setFile] = useState('');
 
+	const [personName, setPersonName] = useState();
+
+	const [personDescription, setPersonDescription] = useState();
+	const [personAvatar, setPersonAvatar] = useState();
+
+	useEffect(() => {
+		setPersonAvatar(tasks.data.avatar);
+		setPersonDescription(tasks.data.description);
+		setPersonName(tasks.data.name);
+	}, [tasks.data]);
+
 	return (
 		<Fragment>
 			<Header />
-			<h1 className="admin__title">Страница администратора</h1>
+			<h1 className="admin__title">Редактирование</h1>
 			<form
+				style={{ marginTop: '0' }}
 				className="admin__person"
 				encType="multipart/form-data"
 				method="POST"
 				onSubmit={async (evt) => {
 					evt.preventDefault();
-					location.reload();
+					// location.reload();
 					const formData = new FormData(evt.target);
+					formData.append('avatar', file ? file.name : personAvatar);
 
 					const responseData = await axios({
-						method: 'POST',
-						url: `${API_URL}/team`,
+						method: 'PATCH',
+						url: `${API_URL}/team/${match.params.id}`,
 						data: formData,
 						withCredentials: true,
 					});
-				
 				}}
 			>
 				<div className="admin__block">
 					<label className="admin__label" htmlFor="avatar">
 						<img
 							className="admin__avatar"
-							src={file ? URL.createObjectURL(file) : `${API_URL}/getImage/default.png`}
+							src={file ? URL.createObjectURL(file) : `${API_URL}/getImage/${personAvatar}`}
 							alt="person picture"
 						/>
 						<div className="admin__icon">&#128194;</div>
@@ -57,48 +69,33 @@ const AdminPanel = ({ loadTeamData, team, match }) => {
 				</div>
 
 				<div className="admin__right">
-					<input className="admin__text-input" type="text" placeholder="введите полное имя композитора" name="name" />
+					<input
+						className="admin__text-input"
+						type="text"
+						placeholder="введите полное имя композитора"
+						name="name"
+						value={personName}
+						onChange={(evt) => {
+							setPersonName(evt.target.value);
+						}}
+					/>
 					<textarea
 						className="admin__textarea"
 						id="description"
 						name="description"
 						type="text"
 						placeholder="введите информацию о композиторе"
+						value={personDescription}
+						onChange={(evt) => {
+							setPersonDescription(evt.target.value);
+						}}
 					/>
 					{/* <input type="radio" name="isMostFanous" placeholder="fanickoe"/> */}
 					<button className="admin__button" type="submit">
-						добавить композитора
+						Сохранить
 					</button>
 				</div>
 			</form>
-			<form
-				className="admin__person"
-				encType="multipart/form-data"
-				method="POST"
-				onSubmit={async (evt) => {
-					evt.preventDefault();
-					
-					const formData = new FormData(evt.target);
-
-			
-
-					const responseData = await axios({
-						method: 'POST',
-						url: `${API_URL}/music`,
-						data: formData,
-						withCredentials: true,
-					});
-				
-					if(responseData.status == 200) {
-						location.reload();
-					}
-				}}
-			>
-				<input className="admin__text-input" type="text" placeholder="введите имя" name="name" />
-				<input type="file" name="sound" className="admin__file"/>
-				<button className="admin__btn" type="submit">добавить музыку</button>
-			</form>
-
 			<Footer />
 		</Fragment>
 	);

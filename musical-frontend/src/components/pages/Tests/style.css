@@ -1,8 +1,10 @@
 .test {
 	margin: 0 auto;
 	margin-top: 10%;
-	width: 60%;
-	display: flex;
+	width: 50%;
+	/* display: flex; */
+	color: aliceblue;
+	padding-bottom: 40px;
 }
 
 .tag-container{
@@ -10,6 +12,11 @@
 }
 
 .react-quiz-container{
-	border: 1px solid black;
-	padding: 30px;
+	border: 1px solid rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.479);
+	padding: 60px;
+}
+
+.test__title{
+	text-align: center;
 }

@@ -35,7 +35,7 @@ const type = upload.single('avatar');
 router.get('/team', handleGetTeam);
 router.get('/person/:id', handleGetPerson);
 router.post('/team',type ,handleAddTeam);
-router.delete('/team', handleDeleteTeam);
+router.delete('/team/:id', handleDeleteTeam);
 router.patch('/team/:id', type, handleUpdateTeam);
 router.post('/upload', type, handleUploadPhoto);
 

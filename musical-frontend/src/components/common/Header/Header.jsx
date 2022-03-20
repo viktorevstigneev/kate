@@ -7,7 +7,7 @@ import { API_URL } from '../../../store/constants';
 
 const Header = ({ loadProfileData, profile, match }) => {
 	const [user, setUser] = useState();
-	console.log('user: ', user);
+
 
 	useEffect(() => {
 		const getCurrentUser = async () => {
@@ -22,7 +22,7 @@ const Header = ({ loadProfileData, profile, match }) => {
 		<>
 			<li>
 				<Link to={`/admin-panel`} className="header__link">
-					Панель редактирования
+					Панель администратора
 				</Link>
 			</li>
 		</>
@@ -71,7 +71,7 @@ const Header = ({ loadProfileData, profile, match }) => {
 	return (
 		<Fragment>
 			<div className="header">
-				<p className="header__logo">Композиторы</p>;
+				<p className="header__logo">Композиторы</p>
 
 				<nav className="header__havbar">
 					<ul className="header__menu">

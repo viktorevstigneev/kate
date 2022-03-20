@@ -6,16 +6,23 @@ import Header from '../../common/Header';
 import Footer from '../../common/Footer';
 import './style.css';
 import { API_URL } from '../../../constants';
+import { Link } from 'react-router-dom';
 
 const Tasks = ({ loadTasksData, match, tasks }) => {
 	useEffect(() => {
 		loadTasksData(match.params.id);
 	}, []);
-	
-	console.log('tasks: ', tasks);
 
+	const [user, setUser] = useState();
 
-
+	useEffect(() => {
+		const getCurrentUser = async () => {
+			const responseData = await axios
+				.get(`${API_URL}/profile`, { withCredentials: true })
+				.then((response) => setUser(response.data));
+		};
+		getCurrentUser();
+	}, []);
 
 	return (
 		<Fragment>
@@ -26,6 +33,11 @@ const Tasks = ({ loadTasksData, match, tasks }) => {
 					<p className="man__fullname">{tasks.data?.name}</p>
 					<p className="man__description">{tasks.data?.description}</p>
 				</div>
+				{user && user.isAdmin && (
+					<Link className="man__edit" to={`/edit-person/${match.params.id}`}>
+						Редактировать
+					</Link>
+				)}
 			</div>
 			<Footer />
 		</Fragment>

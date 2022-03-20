@@ -27,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.raw());
 app.use('/getImage', express.static(path.join(__dirname, 'uploads')));
+app.use('/getAudio', express.static(path.join(__dirname, 'sounds')));
 
 // auth
 
