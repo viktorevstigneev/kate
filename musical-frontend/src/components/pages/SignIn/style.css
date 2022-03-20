@@ -18,7 +18,7 @@
 	margin: 20px 0 20px 0;
 	padding: 20px 0 20px 10px;
 
-	background: #2c2b2b;
+	background: #13185c;
 	color: #cacaca;
 
 	font-family: 'Roboto', sans-serif;
@@ -31,7 +31,7 @@
 }
 
 .sign-in__title {
-	color: #242424;
+	color: #ffffff;
 
 	text-transform: uppercase;
 }
@@ -51,7 +51,7 @@
 	padding: 20px;
 	padding-left: 15px;
 
-	background: #363636e8;
+	background: #0d1477;
 	color: #fff;
 
 	font-size: 17px;
@@ -61,7 +61,7 @@
 	transition: 0.5s;
 }
 .sign-in__button:hover {
-	background: #868686e8;
+	background: #202785;
 	color: rgb(252, 252, 252);
 }
 

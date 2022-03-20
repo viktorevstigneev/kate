@@ -12,9 +12,12 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	color: white;
 
-	background: #d4d4d4;
-	background: url('../../img/bg.jpeg');
+	/* background: #d4d4d4; */
+	/* background: url('../../img/bg.jpeg'); */
+	background: url("https://krot.info/uploads/posts/2021-01/1610163972_4-p-zadnii-sinii-fon-13.jpg");
+	/* background: rgb(50, 252, 0); */
 	background-size: cover;
 	background-attachment: fixed;
 }
